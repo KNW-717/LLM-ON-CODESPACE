@@ -1,0 +1,24 @@
+# Modelli AI (pesanti)
+*.gguf
+*.bin
+*.onnx
+models/
+.ollama/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+
+# Log e Temporanei
+*.log
+/tmp/
+.DS_Store
+
+# Segreti e Config locali
+.env
+.vscode/

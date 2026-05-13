@@ -1,0 +1,23 @@
+{
+    "name": "Remote AI Engineering Lab",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "remoteEnv": {
+        "TAILSCALE_AUTH_KEY": "${localEnv:TAILSCALE_AUTH_KEY}"
+    },
+    "forwardPorts": [
+        11434,
+        7860
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-vscode.cpptools"
+            ]
+        }
+    },
+    "postCreateCommand": "nohup ollama serve > /tmp/ollama.log 2>&1 & sleep 5 && ollama pull phi3:mini && ollama pull dolphin-mistral",
+    "postStartCommand": "/bin/bash scripts/start_services.sh"
+}
